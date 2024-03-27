@@ -7,7 +7,7 @@ Näin tehdään Githubiin sivu markdownilla.
 
     Koodia: neljä välilyöntiä
 
-```Näin saa laatikon: kolme `-merkkiä molemmille puolille)```
+```Näin saa laatikon: kolme `-merkkiä molemmille puolille```
 
 Kuva Topista: 
 
