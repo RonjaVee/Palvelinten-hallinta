@@ -28,3 +28,21 @@
 
 ## Tehtävät
 
+### Laitteen tiedot
+
+- AMD Ryzen 5 3600 6-Core Processor 3.59 GHz
+
+- RAM: 16,0 Gt
+
+- 64-bittinen käyttöjärjestelmä, x64-suoritin
+
+- Windows 10 Pro, versio 22H2
+
+  
+Aloitus 17:15.
+
+
+Saltin asennus: Annoin Debian-koneelleni Karvisen ohjeen mukaan komennot, joista ensimmäinen päivitti paketit, ja toinen asensi Saltin.
+
+`` sudo apt-get update ``
+``sudo apt-get -y install salt-minion ``
