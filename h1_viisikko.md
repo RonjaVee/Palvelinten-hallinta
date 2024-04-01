@@ -18,7 +18,9 @@
 
 [Karvinen, Tero. Run Salt Command Locally. 28.10.2021. https://terokarvinen.com/2021/salt-run-command-locally/](https://terokarvinen.com/2021/salt-run-command-locally/)
 
-
+- Saltin asennus (Debian/Ubuntu): ``sudo apt-get update`` ``sudo apt-get -y install salt-minion``
+- pkg, file, service, user, cmd ovat tärkeimpiä Saltin tilafunktioita
+- Ohjeet komennolla ``sudo salt-call --local sys.state_doc``
 
 
 
@@ -82,6 +84,16 @@ Sitten kokeilin viisi tärkeintä Saltin tilafunktiota antamalla seuraavat komen
   ``sudo salt-call --local -l info state.single cmd.run 'touch /tmp/foo' creates="/tmp/foo"``
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/6b765494-c62b-4549-ae95-7cd9a5be4c3a)
+
+
+### Lähteet
+
+Karvinen, Tero. Palvelinten hallinta 2024 kurssisivu. [https://terokarvinen.com/2024/configuration-management-2024-spring/](https://terokarvinen.com/2024/configuration-management-2024-spring/)
+
+Karvinen, Tero. Run Salt Command Locally. 28.10.2021. [https://terokarvinen.com/2021/salt-run-command-locally/](https://terokarvinen.com/2021/salt-run-command-locally/)
+
+Karvinen, Tero. Vagrant Revisited - Install & Boot New Virtual Machine in 31 seconds. 11.4.2017. [https://terokarvinen.com/2017/vagrant-revisited-install-boot-new-virtual-machine-in-31-seconds/](https://terokarvinen.com/2017/vagrant-revisited-install-boot-new-virtual-machine-in-31-seconds/)
+
 
 
 
