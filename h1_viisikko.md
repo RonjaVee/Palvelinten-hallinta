@@ -48,3 +48,45 @@ Vagrantin asennus: asensin Vagrantin Windowsille sivustolta (latauslinkki Window
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/16e88167-8b11-4a25-b804-89eb53785031)
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/208aa910-608e-41bc-9649-ff5e47dfefdf)
 
+Otin sitten ssh-yhteyden Windows-koneeltani Vagrantilla luomaani virtuaalikoneeseen komennolla ``vagrant ssh`` ja lähdin asentamaan sille Saltia.
+``sudo apt-get update``
+``sudo apt-get install salt-minion``
+
+Tarkistin, että asennus onnistui ``sudo salt-call --version``
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/0475659b-ee20-4e7c-9718-91d15d5b2b77)
+
+Sitten kokeilin viisi tärkeintä Saltin tilafunktiota antamalla seuraavat komennot seuraavin tuloksin:
+
+- Paketin asennus
+  ``sudo salt-call --local -l info state.single pkg.installed tree``
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/87a75679-ad6a-4e09-8b0f-2171b4900a71)
+
+- Tiedoston luonti
+  ``sudo salt-call --local -l info state.single file.managed /tmp/helloronja``
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/e4641569-7309-436b-be29-ee59bc38bb88)
+
+- Apache-palvelimen käynnistys(?). Sitä minulla ei ole asennettuna Windowsille
+  ``sudo salt-call --local -l info state.single service.running apache2 enable=True``
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/b4f0ada2-b328-4ae6-a815-6f31aef015a7)
+
+- Uuden käyttäjän luominen
+  ``sudo salt-call --local -l info state.single user.present ronjav``
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/08c4232c-9e15-4484-9bf7-1fc7344c74d1)
+
+- Touch-komento
+  ``sudo salt-call --local -l info state.single cmd.run 'touch /tmp/foo' creates="/tmp/foo"``
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/6b765494-c62b-4549-ae95-7cd9a5be4c3a)
+
+
+
+
+
+
+
+
