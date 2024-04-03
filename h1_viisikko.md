@@ -89,7 +89,7 @@ Sitten kokeilin viisi tärkeintä Saltin tilafunktiota antamalla seuraavat komen
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/6b765494-c62b-4549-ae95-7cd9a5be4c3a)
 
- Klo 18:25 täytyi lopettaa. Viimeiset tehtävät koetan saada tunnille tehtyä!!
+ Klo 18:25 täytyi lopettaa.
 
  3.4.2024, 16:00.
 
