@@ -1,4 +1,4 @@
-## Tiivistelmät
+## x. Tiivistelmät
 
 [Karivnen, Tero. Raportin kirjoittaminen. 4.6.2006. https://terokarvinen.com/2006/06/04/raportin-kirjoittaminen-4/](https://terokarvinen.com/2006/06/04/raportin-kirjoittaminen-4/)
 
@@ -40,17 +40,17 @@
 Aloitus 17:15.
 
 
-Saltin asennus: asensin Saltin Windowsille sivustolta (vain yksi latauslinkki Windowsille) [https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/windows.html#windows-downloads](https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/windows.html#windows-downloads). Suoritin asennuksen, ja tarkasin ``salt-call --version`` komennolla, että asennus oli onnistunut.
+a. Saltin asennus: asensin Saltin Windowsille sivustolta (vain yksi latauslinkki Windowsille) [https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/windows.html#windows-downloads](https://docs.saltproject.io/salt/install-guide/en/latest/topics/install-by-operating-system/windows.html#windows-downloads). Suoritin asennuksen, ja tarkasin ``salt-call --version`` komennolla, että asennus oli onnistunut.
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/f96f29a9-d80e-46d2-8641-f35732a594c5)
 
 
-Vagrantin asennus: asensin Vagrantin Windowsille sivustolta (latauslinkki Windows AMD64 version 2.4.1) [https://developer.hashicorp.com/vagrant/install?product_intent=vagrant](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant). Annoin sitten komennon Karvisen [ohjeen](https://terokarvinen.com/2017/vagrant-revisited-install-boot-new-virtual-machine-in-31-seconds/) mukaan: ``vagrant init bento/ubuntu-16.04`` ja loin virtuaalikoneen komennolla ``vagrant up``. Virtuaalikone näkyi Virtualboxissa.
+b. ja c. Vagrantin asennus: asensin Vagrantin Windowsille sivustolta (latauslinkki Windows AMD64 version 2.4.1) [https://developer.hashicorp.com/vagrant/install?product_intent=vagrant](https://developer.hashicorp.com/vagrant/install?product_intent=vagrant). Annoin sitten komennon Karvisen [ohjeen](https://terokarvinen.com/2017/vagrant-revisited-install-boot-new-virtual-machine-in-31-seconds/) mukaan: ``vagrant init bento/ubuntu-16.04`` ja loin virtuaalikoneen komennolla ``vagrant up``. Virtuaalikone näkyi Virtualboxissa.
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/16e88167-8b11-4a25-b804-89eb53785031)
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/208aa910-608e-41bc-9649-ff5e47dfefdf)
 
-Otin sitten ssh-yhteyden Windows-koneeltani Vagrantilla luomaani virtuaalikoneeseen komennolla ``vagrant ssh`` ja lähdin asentamaan sille Saltia.
+a. Otin sitten ssh-yhteyden Windows-koneeltani Vagrantilla luomaani virtuaalikoneeseen komennolla ``vagrant ssh`` ja lähdin asentamaan sille Saltia.
 ``sudo apt-get update``
 ``sudo apt-get install salt-minion``
 
@@ -58,7 +58,7 @@ Tarkistin, että asennus onnistui ``sudo salt-call --version``
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/0475659b-ee20-4e7c-9718-91d15d5b2b77)
 
-Sitten kokeilin viisi tärkeintä Saltin tilafunktiota antamalla seuraavat komennot seuraavin tuloksin:
+b. Sitten kokeilin viisi tärkeintä Saltin tilafunktiota antamalla seuraavat komennot seuraavin tuloksin:
 
 - Pakettien hallintaa
   ``sudo salt-call --local -l info state.single pkg.installed tree``
@@ -93,7 +93,7 @@ Sitten kokeilin viisi tärkeintä Saltin tilafunktiota antamalla seuraavat komen
 
  3.4.2024, 16:00.
 
- Komennolla ``sudo salt-call --local state.single file.managed /tmp/testfile content="Hello, world!"`` loin tiedoston testfile, johon kirjoitin "Hello world!". Kun toistin saman komennon, mikään ei muuttunut, sillä 
+c. Komennolla ``sudo salt-call --local state.single file.managed /tmp/testfile content="Hello, world!"`` loin tiedoston testfile, johon kirjoitin "Hello world!". Kun toistin saman komennon, mikään ei muuttunut, sillä 
 Salt tunnisti, että komento oli jo kerran suoritettu, ja luotu tiedosto olemassa samalla sisällöllä. Kun tiedostoa muokataan komennolla, sen tila muuttuu, esim. poistamalla tiedoston.
 ``sudo salt-call --local -l info state.single file.absent /tmp/testfile``
 
@@ -105,6 +105,7 @@ Salt tunnisti, että komento oli jo kerran suoritettu, ja luotu tiedosto olemass
 
 Idempotenssilla varmistetaan, että komentosarjoja voidaan toistaa ilman ei-haluttuja muutoksia. Salt hyödyntää idempotenttista periaatetta, mikä on hyödyllistä virheiden ehkäisemiseksi suurempien järjestelmien hallinnassa.
 
+d. En saanut komentoa toimimaan. Tuli error- ja warning-viestejä. WARNING: CONFIG 'C:\ProgramData\Salt Project\Salt\conf' directory does not exist.
 Lopetus 16:30.
 
 ### Lähteet
