@@ -94,7 +94,7 @@ Sitten kokeilin viisi tärkeintä Saltin tilafunktiota antamalla seuraavat komen
  3.4.2024, 16:00.
 
  Komennolla ``sudo salt-call --local state.single file.managed /tmp/testfile content="Hello, world!"`` loin tiedoston testfile, johon kirjoitin "Hello world!". Kun toistin saman komennon, mikään ei muuttunut, sillä 
-Salt tunnisti, että komento oli jo kerran suoritettu, ja luotu tiedosto olemassa samalla sisällöllä. Kun tiedoston sisältöä muokataan komennolla, sen tila muuttuu, esim. poistamalla tiedoston.
+Salt tunnisti, että komento oli jo kerran suoritettu, ja luotu tiedosto olemassa samalla sisällöllä. Kun tiedostoa muokataan komennolla, sen tila muuttuu, esim. poistamalla tiedoston.
 ``sudo salt-call --local -l info state.single file.absent /tmp/testfile``
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/32a4c52a-2348-4be3-87ad-7830592b76b4)
