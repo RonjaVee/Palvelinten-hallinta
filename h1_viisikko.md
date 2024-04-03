@@ -60,18 +60,22 @@ Tarkistin, että asennus onnistui ``sudo salt-call --version``
 
 Sitten kokeilin viisi tärkeintä Saltin tilafunktiota antamalla seuraavat komennot seuraavin tuloksin:
 
-- Paketin asennus
+- Pakettien hallintaa
   ``sudo salt-call --local -l info state.single pkg.installed tree``
+  Tällä komennolla tarkastettiin tree-nimisen paketin tila, ja jos sitä ei ole asennettu, Salt koettaa sen asentaa. 
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/87a75679-ad6a-4e09-8b0f-2171b4900a71)
 
-- Tiedoston luonti
-  ``sudo salt-call --local -l info state.single file.managed /tmp/helloronja``
+- Tiedostojen hallintaa
+  ``sudo salt-call --local -l info state.single file.managed /tmp/hello``
+  Tällä komennolla luodaan tiedosto hello.
+  
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/99111b73-3685-40b7-a5fb-41be46283603)
 
-![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/e4641569-7309-436b-be29-ee59bc38bb88)
 
-- Apache-palvelimen käynnistys(?). Sitä minulla ei ole asennettuna Windowsille
+- Apache-palvelimen käynnistys(?). Sitä minulla ei ole asennettuna Windowsille.
   ``sudo salt-call --local -l info state.single service.running apache2 enable=True``
+    Koska minulla ei ole Apachea asennettuna, on result false.
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/b4f0ada2-b328-4ae6-a815-6f31aef015a7)
 
@@ -87,6 +91,20 @@ Sitten kokeilin viisi tärkeintä Saltin tilafunktiota antamalla seuraavat komen
 
  Klo 18:25 täytyi lopettaa. Viimeiset tehtävät koetan saada tunnille tehtyä!!
 
+ 3.4.2024, 16:00.
+
+ Komennolla ``sudo salt-call --local state.single file.managed /tmp/testfile content="Hello, world!"`` loin tiedoston testfile, johon kirjoitin "Hello world!". Kun toistin saman komennon, mikään ei muuttunut, sillä 
+Salt tunnisti, että komento oli jo kerran suoritettu, ja luotu tiedosto olemassa samalla sisällöllä. Kun tiedoston sisältöä muokataan komennolla, sen tila muuttuu, esim. poistamalla tiedoston.
+``sudo salt-call --local -l info state.single file.absent /tmp/testfile``
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/32a4c52a-2348-4be3-87ad-7830592b76b4)
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/a22a259a-5388-4a05-90a1-e12718d3221b)
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/7a892869-c736-4d3b-ae1d-1dc33582e506)
+
+Idempotenssilla varmistetaan, että komentosarjoja voidaan toistaa ilman ei-haluttuja muutoksia. Salt hyödyntää idempotenttista periaatetta, mikä on hyödyllistä virheiden ehkäisemiseksi suurempien järjestelmien hallinnassa.
+
 ### Lähteet
 
 Karvinen, Tero. Palvelinten hallinta 2024 kurssisivu. [https://terokarvinen.com/2024/configuration-management-2024-spring/](https://terokarvinen.com/2024/configuration-management-2024-spring/)
@@ -94,6 +112,8 @@ Karvinen, Tero. Palvelinten hallinta 2024 kurssisivu. [https://terokarvinen.com/
 Karvinen, Tero. Run Salt Command Locally. 28.10.2021. [https://terokarvinen.com/2021/salt-run-command-locally/](https://terokarvinen.com/2021/salt-run-command-locally/)
 
 Karvinen, Tero. Vagrant Revisited - Install & Boot New Virtual Machine in 31 seconds. 11.4.2017. [https://terokarvinen.com/2017/vagrant-revisited-install-boot-new-virtual-machine-in-31-seconds/](https://terokarvinen.com/2017/vagrant-revisited-install-boot-new-virtual-machine-in-31-seconds/)
+
+Idempotenssi. Wikipedia, The Free Encyclopedia. Wikimedia Foundation, Inc. 3.7.2019. [https://fi.wikipedia.org/wiki/Idempotenssi](https://fi.wikipedia.org/wiki/Idempotenssi)
 
 
 
