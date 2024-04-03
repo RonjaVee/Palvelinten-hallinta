@@ -105,6 +105,8 @@ Salt tunnisti, että komento oli jo kerran suoritettu, ja luotu tiedosto olemass
 
 Idempotenssilla varmistetaan, että komentosarjoja voidaan toistaa ilman ei-haluttuja muutoksia. Salt hyödyntää idempotenttista periaatetta, mikä on hyödyllistä virheiden ehkäisemiseksi suurempien järjestelmien hallinnassa.
 
+Lopetus 16:30.
+
 ### Lähteet
 
 Karvinen, Tero. Palvelinten hallinta 2024 kurssisivu. [https://terokarvinen.com/2024/configuration-management-2024-spring/](https://terokarvinen.com/2024/configuration-management-2024-spring/)
