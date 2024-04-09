@@ -14,7 +14,7 @@ Tiivistelmä Tero Karvisen ohjeesta Salt Quickstart – Salt Stack Master and Sl
 - Orjat voivat olla missä vaan, herran tulee olla julkisessa verkossa ja orjien tulee tietää sen osoite, jotta herra voi hallita orjia
 - Masterin, herran, pääpalvelimen, mitä nimeä siitä käyttääkään
 - Pääpalvelimen palomuurissa tulee olla portit 4505/tcp ja 4506/tcp auki
-- Orjan asennus (Ubuntu, Debian): ``sudo apt-get update`` ``slave$ sudo apt-get -y install salt-minion``
+- Orjan asennus (Ubuntu, Debian): ``sudo apt-get update`` ``sudo apt-get -y install salt-minion``
 - Jokaisella orjalla oltava eri nimi, nimen voi antaa itse
 - Orjan pitää tietää pääpalvelimen sijainti
 - ``sudoedit /etc/salt/minion`` master: master-koneen ip id: minionin id (jos haluaa ``sudo systemctl restart salt-minion.service``
