@@ -111,6 +111,8 @@ Masterilla ei näkynyt erroria. ``sudo systemctl status salt-master``
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/c76dcc28-76fa-4944-8bb9-3ed7de99055b)
 
+Näistä tiedoista en lopulta hyötynyt yhtään, joten takaisin pohtimiseen.
+
 Kokeilinpa sitten masterin IP-osoitteen sijaan hostnamea t001. Ei toiminut. Sitten kokeilin IP-osoitetta 192.168.88.101. No, sehän sitten toimikin.
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/ad1362a4-430b-4bcd-97fd-9b980d80e839)
