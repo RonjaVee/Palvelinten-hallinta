@@ -140,7 +140,7 @@ __e.__ Aikaisemmin poiminkin grains.item virtual -komennolla tietoa. Kokeilin vi
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/af4d4e5c-b6fd-46b2-a4c2-aa5e72e713c2)
 
-__f.__ Asensin master-koneelle micron ``sudo apt-get -y install micro``. Karvisen [ohjeen](https://terokarvinen.com/2024/hello-salt-infra-as-code/) mukaan lähdin toteuttamaan infraa koodina. Loin esimerkki-nimisen kansion ja siirryin sinne. Komennolla
+__f.__ Karvisen [ohjeen](https://terokarvinen.com/2024/hello-salt-infra-as-code/) mukaan lähdin toteuttamaan infraa koodina. Loin esimerkki-nimisen kansion ja siirryin sinne. Komennolla
 ``sudoedit init.sls`` kirjoitin tiedostoon /tmp/esim: file.managed.
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/c2462116-4b56-41f2-8792-3237a968a53a)
