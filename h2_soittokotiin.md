@@ -23,9 +23,8 @@ Tiivistelmä Tero Karvisen ohjeesta Salt Quickstart – Salt Stack Master and Sl
 
 Tiivistelmä Tero Karvisen ohjeesta Hello Salt Infra-as-Code. 3.4.2024. [https://terokarvinen.com/2024/hello-salt-infra-as-code/](https://terokarvinen.com/2024/hello-salt-infra-as-code/)
 
-- Asennetaan salt minion
 - Luodaan hello-moduuli ``mkdir -p /srv/salt/hello/`` -> ``cd /srv/salt/hello/``
-- Moduuli voi olla esim. Apache -web-palvelin
+- Moduuli voi olla esim. Apache -web-palvelin, tämä esimerkki simppeli demo
 - /srv/salt/ -kansio näkyy kaikille orjille
 - Varmista, että sijaintisi on /srv/salt/hello/, sitten ``sudoedit init.sls``
 - Tiedostoon kirjoitetaan
