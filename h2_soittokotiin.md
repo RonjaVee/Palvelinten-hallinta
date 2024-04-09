@@ -77,7 +77,7 @@ Sitten otin ssh-yhteyden t001-koneeseen, ja pääsin sisälle. Suoritin pingauks
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/8d661704-17fe-4b75-be80-2d23b3c997e3)
 
-b. Päätin tehdä a-kohdan t001-koneesta herran ja t002 orjan. Otin ssh-yhteyden t001-koneeseen, ja annoin komennot ``sudo apt-get update`` ja ``sudo apt-get -y install salt-master`` [ohjeen](https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart) mukaan. Koska en ole asentanut koneelle palomuuria, ei siihen tarvinnut tehdä reikiä. 
+b. Päätin tehdä a-kohdan t001-koneesta herran ja t002 orjan. Otin ssh-yhteyden t001-koneeseen, ja annoin komennot ``sudo apt-get update`` ja ``sudo apt-get -y install salt-master`` [ohjeen](https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart) mukaan. Palomuuriin en koskenut, koska sitä ei ollut asennettu.
 
 Sitten vaihdoin t002-koneelle ssh-yhteydellä, annoin komennot ``sudo apt-get update`` ja ``sudo apt-get -y install salt-minion``. Kertoakseni orjalle pääpalvelimen sijainnin, muokkasin tiedostoa ``sudoedit /etc/salt/minion``. 
 
