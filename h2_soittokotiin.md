@@ -113,7 +113,8 @@ Masterilla ei näkynyt erroria. ``sudo systemctl status salt-master``
 
 Näistä tiedoista en lopulta hyötynyt yhtään, joten takaisin pohtimiseen.
 
-Kokeilinpa sitten masterin IP-osoitteen sijaan hostnamea t001. Ei toiminut. Sitten kokeilin IP-osoitetta 192.168.88.101. No, sehän sitten toimikin.
+Kokeilinpa sitten masterin IP-osoitteen sijaan hostnamea t001. Ei toiminut. Sitten kokeilin IP-osoitetta 192.168.88.101. No, sehän sitten toimikin. Eli ``sudoedit /etc/salt/minion`` -> master: 192.168.88.101.
+
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/ad1362a4-430b-4bcd-97fd-9b980d80e839)
 
@@ -153,7 +154,7 @@ Suoritin komennon ``sudo salt '*' state.apply esimerkki`` toimeenpannakseni kome
 
 Lopetus 18:35.
 
-Päivitys 18:50 siistitty tiivistelmien komentoja ja esimerkkejä selkeämmäksi.
+Päivitys 18:50 siistitty tiivistelmien komentoja ja esimerkkejä selkeämmäksi. Ja 18:58 vielä selkeytetty, mitä tehty missä kohtaa kohdassa a., kun siinä tuli sekoiltua.
 
 ### Lähteet
 
