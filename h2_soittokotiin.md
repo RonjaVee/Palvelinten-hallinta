@@ -14,11 +14,11 @@ Tiivistelmä Tero Karvisen ohjeesta Salt Quickstart – Salt Stack Master and Sl
 - Orjat voivat olla missä vaan, herran tulee olla julkisessa verkossa ja orjien tulee tietää sen osoite, jotta herra voi hallita orjia
 - Masterin, herran, pääpalvelimen, mitä nimeä siitä käyttääkään
 - Pääpalvelimen palomuurissa tulee olla portit 4505/tcp ja 4506/tcp auki
-- Orjan asennus (Ubuntu, Debian): ``slave$ sudo apt-get update`` ``slave$ sudo apt-get -y install salt-minion``
+- Orjan asennus (Ubuntu, Debian): ``sudo apt-get update`` ``slave$ sudo apt-get -y install salt-minion``
 - Jokaisella orjalla oltava eri nimi, nimen voi antaa itse
 - Orjan pitää tietää pääpalvelimen sijainti
-- ``slave$ sudoedit /etc/salt/minion`` master: 10.0.0.88 id: id ``slave$ sudo systemctl restart salt-minion.service``
-- Pääpalvelimelle annetaan orjan avain ``master$ sudo salt-key -A``
+- ``sudoedit /etc/salt/minion`` master: master-koneen ip id: minionin id (jos haluaa ``sudo systemctl restart salt-minion.service``
+- Pääpalvelimelle annetaan orjan avain ``sudo salt-key -A``
 
 
 Tiivistelmä Tero Karvisen ohjeesta Hello Salt Infra-as-Code. 3.4.2024. [https://terokarvinen.com/2024/hello-salt-infra-as-code/](https://terokarvinen.com/2024/hello-salt-infra-as-code/)
@@ -151,6 +151,8 @@ Suoritin komennon ``sudo salt '*' state.apply esimerkki`` toimeenpannakseni kome
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/76a9d7b2-3caf-4cdd-9527-f92efbb63c3c)
 
 Lopetus 18:35.
+
+Päivitys 18:50 siistitty tiivistelmien komentoja ja esimerkkejä selkeämmäksi.
 
 ### Lähteet
 
