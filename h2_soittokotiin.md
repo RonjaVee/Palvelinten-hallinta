@@ -91,6 +91,7 @@ Seuraavaksi palasin takaisin t001-koneelle ssh-yhteyden kautta ottaakseni sillä
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/429c66e1-760e-4f88-a1b0-76f85b1041fd)
 
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/41b336a2-3979-442c-9360-b0f7bf655ec9)
 
 Tauko 15:00-17:20.
 
