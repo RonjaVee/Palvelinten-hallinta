@@ -77,4 +77,22 @@ Sitten otin ssh-yhteyden t001-koneeseen, ja pääsin sisälle. Suoritin pingauks
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/8d661704-17fe-4b75-be80-2d23b3c997e3)
 
+b. Päätin tehdä a-kohdan t001-koneesta herran ja t002 orjan. Otin ssh-yhteyden t001-koneeseen, ja annoin komennot ``sudo apt-get update`` ja ``sudo apt-get -y install salt-master`` [ohjeen](https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart) mukaan. Koska en ole asentanut koneelle palomuuria, ei siihen tarvinnut tehdä reikiä. 
+
+Sitten vaihdoin t002-koneelle ssh-yhteydellä, annoin komennot ``sudo apt-get update`` ja ``sudo apt-get -y install salt-minion``. Kertoakseni orjalle pääpalvelimen sijainnin, muokkasin tiedostoa ``sudoedit /etc/salt/minion``. 
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/3863f452-36f2-4564-8e12-af0cc8bec1d9)
+
+
+Sitten käynnistin koneen uudestaan, jotta asetukset tulisivat voimaan. ``sudo systemctl restart salt-minion.service``
+
+Seuraavaksi palasin takaisin t001-koneelle ssh-yhteyden kautta ottaakseni sillä vastaan orjan avaimen. ``sudo salt-key -A`` Se ei toiminut, ja aloin tutkimaan syytä. Oletin, että IP-osoitteessa on vikaa, ja tarkistin pääpalvelimen IP-osoitteen komennolla 
+``sudo salt-call --local network.ip_addrs``, ja IP-osoite olikin eri kuin esimerkissä, joten käytin sitä, käynnistin t002 uudelleen ja koetin uudestaan vastaanottaa avaimen t001-koneella. Vieläkin tuli sama ilmoitus.
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/429c66e1-760e-4f88-a1b0-76f85b1041fd)
+
+
+Tauko 15:00-17:20.
+
+
 
