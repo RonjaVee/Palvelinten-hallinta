@@ -29,7 +29,7 @@ Tiivistelmä Tero Karvisen ohjeesta Hello Salt Infra-as-Code. 3.4.2024. [https:/
 - /srv/salt/ -kansio näkyy kaikille orjille
 - Varmista, että sijaintisi on /srv/salt/hello/, sitten ``sudoedit init.sls``
 - Tiedostoon kirjoitetaan
-    /tmp/helloronja:
+    /tmp/hello:
     file.managed
 - Testataan: ``salt-call --local state.apply hello``
 
