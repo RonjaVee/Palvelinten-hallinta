@@ -49,7 +49,7 @@ Tiivistelmä Tero Karvisen ohjeesta Hello Salt Infra-as-Code. 3.4.2024. [https:/
 
 Aloitus 9.4. klo 13:15.
 
-a. Lähdin etenemään Tero Karvisen [ohjeen](https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/?fromSearch=vagrant%20two%20machine) mukaan luomalla twohost-kansion ja sinne tekstitiedoston Vagrantfile. Koska työskentelin 
+__a.__ Lähdin etenemään Tero Karvisen [ohjeen](https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/?fromSearch=vagrant%20two%20machine) mukaan luomalla twohost-kansion ja sinne tekstitiedoston Vagrantfile. Koska työskentelin 
 Windows-ympäristössä, en keksinyt heti, millä editorilla voisin helpoiten tekstitiedoston luoda, joten kysyin sitä ChatGPT:ltä, ja notepad vaikutti simppeleimmältä ratkaisulta.
 
 ``mkdir twohost/`` ``cd twohost/`` ``notepad Vagrantfile``
@@ -77,7 +77,7 @@ Sitten otin ssh-yhteyden t001-koneeseen, ja pääsin sisälle. Suoritin pingauks
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/8d661704-17fe-4b75-be80-2d23b3c997e3)
 
-b. Päätin tehdä a-kohdan t001-koneesta herran ja t002 orjan. Otin ssh-yhteyden t001-koneeseen, ja annoin komennot ``sudo apt-get update`` ja ``sudo apt-get -y install salt-master`` Karvisen [ohjeen](https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart) mukaan. Palomuuriin en koskenut, koska sitä ei ollut asennettu.
+__b.__ Päätin tehdä a-kohdan t001-koneesta herran ja t002 orjan. Otin ssh-yhteyden t001-koneeseen, ja annoin komennot ``sudo apt-get update`` ja ``sudo apt-get -y install salt-master`` Karvisen [ohjeen](https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart) mukaan. Palomuuriin en koskenut, koska sitä ei ollut asennettu.
 
 Sitten vaihdoin t002-koneelle ssh-yhteydellä, annoin komennot ``sudo apt-get update`` ja ``sudo apt-get -y install salt-minion``. Kertoakseni orjalle pääpalvelimen sijainnin, muokkasin tiedostoa ``sudoedit /etc/salt/minion``. 
 
@@ -116,11 +116,11 @@ Kokeilinpa sitten masterin IP-osoitteen sijaan hostnamea t001. Ei toiminut. Sitt
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/ad1362a4-430b-4bcd-97fd-9b980d80e839)
 
-c. Kokeilin ohjeesta löytyviä esimerkkikomentoja ``sudo salt '*' cmd.run 'hostname -I'`` ja ``sudo salt '*' grains.item virtual``.
+__c.__ Kokeilin ohjeesta löytyviä esimerkkikomentoja ``sudo salt '*' cmd.run 'hostname -I'`` ja ``sudo salt '*' grains.item virtual``.
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/a900b9cb-f30a-443a-bb17-3120bab0b9e9)
 
-d. Kokeilin idempotenttisia komentoja master-slave -yhteydellä:
+__d.__ Kokeilin idempotenttisia komentoja master-slave -yhteydellä:
 
     ``sudo salt '*' state.single pkg.installed name=cowsay``
     ``sudo salt '*' state.single file.managed /tmp/esimerkki``
@@ -133,11 +133,11 @@ Komennot loin yhdistelemällä aikaisemman raportin single.state-komentoja ja su
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/f684786c-3082-4df1-9e43-dcc21e7c7f80)
 
-e. Aikaisemmin poiminkin grains.item virtual -komennolla tietoa. Kokeilin vielä ``sudo salt '*' grains.items|less`` komentoa. VirtualBoxhan siellä pohjalla on.
+__e.__ Aikaisemmin poiminkin grains.item virtual -komennolla tietoa. Kokeilin vielä ``sudo salt '*' grains.items|less`` komentoa. VirtualBoxhan siellä pohjalla on.
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/af4d4e5c-b6fd-46b2-a4c2-aa5e72e713c2)
 
-f. Asensin master-koneelle micron ``sudo apt-get -y install micro``. Karvisen [ohjeen](https://terokarvinen.com/2024/hello-salt-infra-as-code/) mukaan lähdin toteuttamaan infraa koodina. Loin esimerkki-nimisen kansion ja siirryin sinne. Komennolla
+__f.__ Asensin master-koneelle micron ``sudo apt-get -y install micro``. Karvisen [ohjeen](https://terokarvinen.com/2024/hello-salt-infra-as-code/) mukaan lähdin toteuttamaan infraa koodina. Loin esimerkki-nimisen kansion ja siirryin sinne. Komennolla
 ``sudoedit init.sls`` kirjoitin tiedostoon /tmp/esim: file.managed.
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/c2462116-4b56-41f2-8792-3237a968a53a)
@@ -149,6 +149,8 @@ Suoritin komennon ``sudo salt '*' state.apply esimerkki`` toimeenpannakseni kome
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/8c412e86-8b30-40b8-bd00-25676cd57c70)
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/76a9d7b2-3caf-4cdd-9527-f92efbb63c3c)
+
+Lopetus 18:35.
 
 ### Lähteet
 
