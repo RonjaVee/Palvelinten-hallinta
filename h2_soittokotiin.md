@@ -95,5 +95,5 @@ Seuraavaksi palasin takaisin t001-koneelle ssh-yhteyden kautta ottaakseni sillä
 
 Tauko 15:00-17:20.
 
-
+Aloitin homman alusta ``vagrant destroy`` ``vagrant up``.
 
