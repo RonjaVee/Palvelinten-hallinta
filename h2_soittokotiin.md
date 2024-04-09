@@ -2,7 +2,37 @@
 
 Tiivistelmä Tero Karvisen ohjeesta Two Machine Virtual Network With Debian 11 Bullseye and Vagrant. 4.11.2021. [https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/?fromSearch=vagrant%20two%20machine](https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/?fromSearch=vagrant%20two%20machine)
 
+- Vagrant ja Virtualbox tulee olla asennettuna
+- Luodaan kansio projektille
+- Kansioon luodaan Vagrantfile, johon konfiguroidaan palvelimet
+- Konfiguraation jälkeen virtuaalikoneisiin voi ottaa ssh-yhteyden
+- ``Vagrant destroy`` -komennolla voi tuhota virtuaalikoneet
+- ``Vagrant up`` -komenolla voi sen jälkeen avata uudet koneet
+
 Tiivistelmä Tero Karvisen ohjeesta Salt Quickstart – Salt Stack Master and Slave on Ubuntu Linux. 28.3.2018. [https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart](https://terokarvinen.com/2018/salt-quickstart-salt-stack-master-and-slave-on-ubuntu-linux/?fromSearch=salt%20quickstart)
+
+- Orjat voivat olla missä vaan, herran tulee olla julkisessa verkossa ja orjien tulee tietää sen osoite, jotta herra voi hallita orjia
+- Masterin, herran, pääpalvelimen, mitä nimeä siitä käyttääkään
+- Pääpalvelimen palomuurissa tulee olla portit 4505/tcp ja 4506/tcp auki
+- Orjan asennus (Ubuntu, Debian): ``slave$ sudo apt-get update`` ``slave$ sudo apt-get -y install salt-minion``
+- Jokaisella orjalla oltava eri nimi, nimen voi antaa itse
+- Orjan pitää tietää pääpalvelimen sijainti
+- ``slave$ sudoedit /etc/salt/minion`` master: 10.0.0.88 id: id ``slave$ sudo systemctl restart salt-minion.service``
+- Pääpalvelimelle annetaan orjan avain ``master$ sudo salt-key -A``
+
+
+Tiivistelmä Tero Karvisen ohjeesta Hello Salt Infra-as-Code. 3.4.2024. [https://terokarvinen.com/2024/hello-salt-infra-as-code/](https://terokarvinen.com/2024/hello-salt-infra-as-code/)
+
+- Asennetaan salt minion
+- Luodaan hello-moduuli ``mkdir -p /srv/salt/hello/`` -> ``cd /srv/salt/hello/``
+- Moduuli voi olla esim. Apache -web-palvelin
+- /srv/salt/ -kansio näkyy kaikille orjille
+- Varmista, että sijaintisi on /srv/salt/hello/, sitten ``sudoedit init.sls``
+- Tiedostoon kirjoitetaan
+    /tmp/helloronja:
+    file.managed
+- Testataan: ``salt-call --local state.apply hello``
+
 
 ## Tehtävät
 
