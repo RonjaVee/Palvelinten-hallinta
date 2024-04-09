@@ -17,7 +17,7 @@ Tiivistelmä Tero Karvisen ohjeesta Salt Quickstart – Salt Stack Master and Sl
 - Orjan asennus (Ubuntu, Debian): ``sudo apt-get update`` ``sudo apt-get -y install salt-minion``
 - Jokaisella orjalla oltava eri nimi, nimen voi antaa itse
 - Orjan pitää tietää pääpalvelimen sijainti
-- ``sudoedit /etc/salt/minion`` master: master-koneen ip id: minionin id (jos haluaa ``sudo systemctl restart salt-minion.service``
+- ``sudoedit /etc/salt/minion`` master: master-koneen ip id: minionin id (minionin id ei pakollinen) ``sudo systemctl restart salt-minion.service``
 - Pääpalvelimelle annetaan orjan avain ``sudo salt-key -A``
 
 
