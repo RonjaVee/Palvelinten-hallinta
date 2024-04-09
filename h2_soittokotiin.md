@@ -124,8 +124,9 @@ __c.__ Kokeilin ohjeesta löytyviä esimerkkikomentoja ``sudo salt '*' cmd.run '
 
 __d.__ Kokeilin idempotenttisia komentoja master-slave -yhteydellä:
 
-    ``sudo salt '*' state.single pkg.installed name=cowsay``
-    ``sudo salt '*' state.single file.managed /tmp/esimerkki``
+``sudo salt '*' state.single pkg.installed name=cowsay``
+
+ ``sudo salt '*' state.single file.managed /tmp/esimerkki``
 
 Komennot loin yhdistelemällä aikaisemman raportin single.state-komentoja ja sudo salt '*'. Idempotenssia testasin suorittamalla jälkimmäisen komennon uudestaan -> no changes made.
     
