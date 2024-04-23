@@ -32,7 +32,6 @@ Salt contributors. Salt overview. Kohdat Rules of YAML, YAML simple structure, L
   avain1: arvo1
   avain2: arvo2
   avain3: arvo3
-
   ```
 - Lists:
 
@@ -43,7 +42,6 @@ Salt contributors. Salt overview. Kohdat Rules of YAML, YAML simple structure, L
   yläavain2:
    - arvo3
    - arvo4
-
   ````
 - Scalars:
 
@@ -55,7 +53,6 @@ yläavain1:
     - arvo3
     - arvo4
     - arvo5
-
 ```
 
 
