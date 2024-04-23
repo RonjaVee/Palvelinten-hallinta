@@ -16,11 +16,11 @@ Karvinen, Tero. Salt Vagrant - automatically provision one master and two slaves
 - ``sudo salt '*' state.apply hello^C``
 - ``sudoedit /srv/salt/top.sls``
 
-```
-base:
-  '*':
-    - hello
-```
+  ```
+  base:
+    '*':
+      - hello
+  ```
 
 Salt contributors. Salt overview. Kohdat Rules of YAML, YAML simple structure, Lists and dictionaries - YAML block structures. [https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml](https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml). Luettu 23.4.2024.
 
