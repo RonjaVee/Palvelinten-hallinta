@@ -6,8 +6,10 @@ Karvinen, Tero. Salt Vagrant - automatically provision one master and two slaves
 - Sitten luodaan salt state file tähän kansioon: ``sudoedit /srv/salt/hello/init.sls``
 - init.sls kirjoitetaan seuraava teksti:
   
-  ```/tmp/infra-as-code:
-    file.managed```
+  ```
+  /tmp/infra-as-code:
+    file.managed
+  ```
 
 - Tila otetaan käyttöön komennolla ``sudo salt '*' state.apply hello``
 
