@@ -76,4 +76,56 @@ Karvinen, Tero. Pkg-File-Service – Control Daemons with Salt – Change SSH Se
 
 - Windows 10 Pro, versio 22H2
 
-  
+Aloitus klo 16:15.
+
+a. Hello SLS! 
+Käynnistin aiemmin Vagrantilla luomani virtuaalikoneet t001 ja t002, joita hyödynnän näissä tehtävissä. Otin t001-koneeseen SSH-yhteyden ``vagrant ssh t001``. Käytin Karvisen [ohjetta](https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file) Hei maailma -tilan luomiseen.
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/5db99ae6-beb6-418f-aceb-a3d6b76813ce)
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/6a7443cb-32e0-4666-9078-f46c7b274d00)
+
+
+b. Top. Loin edellisen tehtävän ohjeen mukaan top.sls -tiedoston /srv/salt -hakemistoon ja loin sinne listan, johon voi lisätä useita tiloja, jotka voi suorittaa yhtäaikaa yhdellä komennolla. Komento ``sudo salt '*' state.apply`` suorittaa kaikki tähän
+tiedostoon listatut tilat.
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/4356f31d-65d5-4c94-a1bd-8e71f20c0a94)
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/f9d18df5-a53b-4b2b-9057-82b4de40bdb8)
+
+c. Apache easy mode. Apachen asennuksen komennot:
+
+``sudo apt-get update``
+``sudo apt-get -y install apache2``
+``sudoedit /etc/apache2/sites-available/esimerkki.com.conf``
+
+```
+<VirtualHost *:80>
+ ServerName pyora.esimerkki.com
+ ServerAlias www.esimerkki.com
+ DocumentRoot /home/vagrant/publicsites/esimerkki.com
+ <Directory /home/vagrant/publicsites/esimerkki.com>
+   Require all granted
+ </Directory>
+</VirtualHost>
+```
+
+``sudo a2ensite esimerkki.com``
+``sudo a2dissite 000-default.conf``
+``sudo systemctl restart apache2``
+``mkdir -p /home/vagrant/publicsites/esimerkki.com/``
+``echo terve esimerkki > /home/vagrant/publicsites/esimerkki.com/index.html``
+``curl localhost``
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/39b3e3e5-c4c3-439f-9f44-0835e41b4122)
+
+
+
+
+Lähteet
+
+https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file
+
+https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/
+
+https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh
