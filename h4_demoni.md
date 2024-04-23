@@ -58,7 +58,10 @@ yläavain1:
 
 Karvinen, Tero. Pkg-File-Service – Control Daemons with Salt – Change SSH Server Port. 3.4.2018. [https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh](https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh)
 
-
+- SSH-palvelimen tila (asennus, hallinta, ylläpito) sshd.sls -tiedostossa
+- sshd_config on SSH-palvelimen konfiguraatiotiedosto, jossa määritellään esim. portit, ja jota hallitaan Saltin avulla
+- state.apply ottaa määritellyt tilat käyttöön
+- Konfiguraatio testataan yhdistämällä SSH-palvelimeen yhdellä orjien koneista käyttäen määriteltyä porttia -> jos yhteys portin kautta saadaan, onnistui
 
 
 ## Tehtävät
