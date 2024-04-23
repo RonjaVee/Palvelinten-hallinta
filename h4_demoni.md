@@ -119,6 +119,8 @@ c. Apache easy mode. Apachen asennuksen komennot:
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/39b3e3e5-c4c3-439f-9f44-0835e41b4122)
 
+Huom. tästä eteenpäin lähtee sekoilu (kello oli n. 16:45).
+
 Näistä komennoista loin salt-tilan: 
 
 ```
@@ -174,15 +176,88 @@ Sitten loin tilalle kansion ``sudo mkdir /srv/salt/apache`` ja muokkasin init.sl
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/06e44790-4d76-43dd-a485-41068c1acb9a)
 
+Ei toiminut. Kokeilin sitten seuraavaa: 
+
+```
+apache_install:
+  pkg.installed:
+    - name: apache2
+
+replace_default_index_html:
+  file.managed:
+    - name: /var/www/html/index.html
+    - contents: "Tämä on uusi testisivu.\n"
+    - user: www-data
+    - group: www-data
+    - mode: '0644'
+    - require:
+      - pkg: apache_install
+
+apache_restart:
+  service.running:
+    - name: apache2
+    - enable: True
+    - require:
+      - file: replace_default_index_html
+```
+
+Ei toiminut tämäkään. Virheilmoituksessa tuli ainakin seuraavaa:      ID: apache_install
+    Function: pkg.installed
+        Name: apache2
+      Result: False
+     Comment: An error was encountered while installing package(s): E: Release file for https://security.debian.org/debian-security/dists/bullseye-security/InRelease is not valid yet (invalid for another 5d 12h 18min 33s). Updates for this repository will not be applied.
 
 
+Päätin luoda uudet koneet Vagrantilla ja kokeilla koko hommaa uudestaan. ``mkdir esimerkkikone`` ``cd .\esimerkkikone\`` ``notepad Vagrantfile``
+Tiedostoon loin kolme Debian-konetta (machine1, machine2, machine3) ChatGPT:n antaman konfiguraation mukaan.
 
+``vagrant up``
 
+Koneiden luomisessa meni muutama minuutti ja toisesta huoneesta kuului "kuka siin netis on" -huutelua.
+Huomasin, että luodut koneet olivat Debian10 (Buster) eli vanhempaa mallia kuin Debian11 (Bullseye). Poistin nämä vanhat koneet, mutta en enää kehdannut laittaa uusia pystyyn. Tälläistä konfiguraatiota on tarkoitus käyttää niille:
 
-Lähteet
+```
+Vagrant.configure("2") do |config|
 
-https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file
+  # Configuration for machine1
+  config.vm.define "machine1" do |machine1|
+    machine1.vm.box = "debian/bullseye64"
+    machine1.vm.network "private_network", ip: "192.168.50.101"
+    # Add any additional configuration for machine1
+  end
 
-https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/
+  # Configuration for machine2
+  config.vm.define "machine2" do |machine2|
+    machine2.vm.box = "debian/bullseye64"
+    machine2.vm.network "private_network", ip: "192.168.50.102"
+    # Add any additional configuration for machine2
+  end
 
-https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/?fromSearch=karvinen%20salt%20ssh
+  # Configuration for machine3
+  config.vm.define "machine3" do |machine3|
+    machine3.vm.box = "debian/bullseye64"
+    machine3.vm.network "private_network", ip: "192.168.50.103"
+    # Add any additional configuration for machine3
+  end
+
+end
+```
+Homma jäi nyt valitettavasti kesken. Lopetus klo 18:00.
+
+### Lähteet
+
+Tehtävänanto: Infra as Code - Palvelinten hallinta 2024 [https://terokarvinen.com/2024/configuration-management-2024-spring/](https://terokarvinen.com/2024/configuration-management-2024-spring/)
+
+Karvinen, Tero. Salt Vagrant - automatically provision one master and two slaves. 28.3.2023. [https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file](https://terokarvinen.com/2023/salt-vagrant/#infra-as-code---your-wishes-as-a-text-file)
+
+Karvinen, Tero. Name Based Virtual Hosts on Apache – Multiple Websites to Single IP Address. 10.4.2018. [https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/](https://terokarvinen.com/2018/04/10/name-based-virtual-hosts-on-apache-multiple-websites-to-single-ip-address/)
+
+Karvinen, Tero. Pkg-File-Service – Control Daemons with Salt – Change SSH Server Port. 3.4.2018. [https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/](https://terokarvinen.com/2018/04/03/pkg-file-service-control-daemons-with-salt-change-ssh-server-port/)
+
+Karvinen, Tero. Run Salt Command Locally. 4.11.2021. [https://terokarvinen.com/2021/salt-run-command-locally/](https://terokarvinen.com/2021/salt-run-command-locally/)
+
+Karvinen, Tero. Two Machine Virtual Network With Debian 11 Bullseye and Vagrant. 4.11.2021. [https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/](https://terokarvinen.com/2021/two-machine-virtual-network-with-debian-11-bullseye-and-vagrant/)
+
+Salt contributors. Salt overview. Kohdat Rules of YAML, YAML simple structure, Lists and dictionaries - YAML block structures. [https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml](https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml). Luettu 23.4.2024.
+
+OpenAI. "ChatGPT (GPT-3.5)". OpenAI API. 2024 [https://openai.com](https://openai.com)
