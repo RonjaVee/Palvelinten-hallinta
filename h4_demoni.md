@@ -95,9 +95,9 @@ tiedostoon listatut tilat.
 
 c. Apache easy mode. Apachen asennuksen komennot:
 
-``sudo apt-get update``
-``sudo apt-get -y install apache2``
-``sudoedit /etc/apache2/sites-available/esimerkki.com.conf``
+- ``sudo apt-get update``
+- ``sudo apt-get -y install apache2``
+- ``sudoedit /etc/apache2/sites-available/esimerkki.com.conf``
 
 ```
 <VirtualHost *:80>
@@ -110,12 +110,12 @@ c. Apache easy mode. Apachen asennuksen komennot:
 </VirtualHost>
 ```
 
-``sudo a2ensite esimerkki.com``
-``sudo a2dissite 000-default.conf``
-``sudo systemctl restart apache2``
-``mkdir -p /home/vagrant/publicsites/esimerkki.com/``
-``echo terve esimerkki > /home/vagrant/publicsites/esimerkki.com/index.html``
-``curl localhost``
+- ``sudo a2ensite esimerkki.com``
+- ``sudo a2dissite 000-default.conf``
+- ``sudo systemctl restart apache2``
+- ``mkdir -p /home/vagrant/publicsites/esimerkki.com/``
+- ``echo terve esimerkki > /home/vagrant/publicsites/esimerkki.com/index.html``
+- ``curl localhost``
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/39b3e3e5-c4c3-439f-9f44-0835e41b4122)
 
