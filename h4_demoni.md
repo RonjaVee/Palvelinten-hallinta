@@ -12,7 +12,15 @@ Karvinen, Tero. Salt Vagrant - automatically provision one master and two slaves
   ```
 
 - Tila otetaan käyttöön komennolla ``sudo salt '*' state.apply hello``
+- top.sls -tiedostolla määritellään, mitä tiloja mikäkin orja suorittaa
+- ``sudo salt '*' state.apply hello^C``
+- ``sudoedit /srv/salt/top.sls``
 
+```
+base:
+  '*':
+    - hello
+```
 
 
 
