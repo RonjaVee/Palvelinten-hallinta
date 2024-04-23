@@ -108,6 +108,11 @@ Idempotenssilla varmistetaan, että komentosarjoja voidaan toistaa ilman ei-halu
 d. En saanut komentoa toimimaan. Tuli error- ja warning-viestejä. WARNING: CONFIG 'C:\ProgramData\Salt Project\Salt\conf' directory does not exist.
 Lopetus 16:30.
 
+Lisäys 23.4.2024: Syy d-kohdan epäonnistumiseen johtui siitä, etten avannut Powershelliä administratorina. Tällaista tietoa irtosi komennolla ``salt-call --local grains.items`` (pitkä lista jatkui):
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/197d5137-81d9-40f4-b46a-017f70d3e824)
+
+
 ### Lähteet
 
 Karvinen, Tero. Palvelinten hallinta 2024 kurssisivu. [https://terokarvinen.com/2024/configuration-management-2024-spring/](https://terokarvinen.com/2024/configuration-management-2024-spring/)
