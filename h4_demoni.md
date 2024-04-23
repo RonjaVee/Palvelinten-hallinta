@@ -119,6 +119,63 @@ c. Apache easy mode. Apachen asennuksen komennot:
 
 ![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/39b3e3e5-c4c3-439f-9f44-0835e41b4122)
 
+Näistä komennoista loin salt-tilan: 
+
+```
+apache_install:
+  pkg.installed:
+    - name: apache2
+
+apache_site_config:
+  file.managed:
+    - name: /etc/apache2/sites-available/esimerkki.com.conf
+    - source: salt://etc/apache2/sites-available/esimerkki.com.conf
+
+apache_enable_site:
+  cmd.run:
+    - name: a2ensite esimerkki.com
+    - require:
+      - file: apache_site_config
+
+apache_disable_default_site:
+  cmd.run:
+    - name: a2dissite 000-default
+
+apache_restart:
+  service.running:
+    - name: apache2
+    - enable: True
+    - require:
+      - cmd: apache_disable_default_site
+
+create_html_directory:
+  file.directory:
+    - name: /home/vagrant/publicsites/esimerkki.com/
+
+create_index_html:
+  file.managed:
+    - name: /home/vagrant/publicsites/esimerkki.com/index.html
+    - contents: "terve esimerkki\n"
+    - require:
+      - file: create_html_directory
+
+curl_localhost:
+  cmd.run:
+    - name: curl localhost
+    - unless: curl localhost
+    - require:
+      - service: apache_restart
+```
+
+Sitten loin tilalle kansion ``sudo mkdir /srv/salt/apache`` ja muokkasin init.sls -tiedostoa kuvan mukaisesti liittämällä sinne salt-tilan. Lisäsin tilan top.sls -tiedostoon.
+
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/b506cbd8-11b2-47a1-927b-569ba0c393ba)
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/06e44790-4d76-43dd-a485-41068c1acb9a)
+
+
+
 
 
 
