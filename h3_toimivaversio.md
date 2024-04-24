@@ -112,6 +112,23 @@ Eipä toimi, kaikkea samantapaista kokeilin. Pitääpä kerrata salt-tiloja ja n
 
 Lopetus 18:50.
 
+Lisäys 24.4. tähän tehtävään:
+
+Näin suoritetaan simppeli salt-tila Windowsilla: luodaan esimerkki.txt -tiedosto Temp-kansioon luomalla ensin hello-kansio, hello-kansioon luodaan tiedosto hello.sls johon tila kirjoitetaan, sitten tila 
+suoritetaan state.applylla. Windowsilla --file-root tärkeä, jotta oikea polku .sls-tiedostoon löytyy.
+
+``mkdir srv/salt/hello`` -> ``notepad hello.sls`` -> 
+
+```
+C:/Windows/Temp/esimerkki.txt:
+  file.managed
+```
+
+``salt-call --local state.apply hello --file-root C:/srv/salt/hello``
+
+![image](https://github.com/RonjaVee/Palvelinten-hallinta/assets/148786247/ece89ca6-8c88-4249-95ad-9d88d8cb6266)
+
+
 ### Lähteet 
 
 Tehtävä: Karvinen, Tero. Palvelinten hallinta 2024 kurssisivu. [https://terokarvinen.com/2024/configuration-management-2024-spring/](https://terokarvinen.com/2024/configuration-management-2024-spring/)
