@@ -2,7 +2,6 @@
 
 Tiivistelmä tekstistä Windows Package Manager. Salt Project. Generoitu 30.4.2024. [https://docs.saltproject.io/en/latest/topics/windows/windows-package-manager.html](https://docs.saltproject.io/en/latest/topics/windows/windows-package-manager.html)
 
-- Windowsiin voi asentaa paketteja Saltilla käyttämällä .sls-tiedostoa
 - Yleisimpiä paketteja saadaan SaltStack-repositoriosta Githubista [https://github.com/saltstack/salt-winrepo-ng](https://github.com/saltstack/salt-winrepo-ng)
 - Kirjastojen asennus (valinnainen): GitPython tai pygit2
 - Paikallinen Git-repositorio täytetään salt-winrepo-ng:llä: ``salt-run winrepo.update_git_repos`` (masterilla) tai ``salt-call --local winrepo.update_git_repos`` (minion ilman masteria)
