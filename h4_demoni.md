@@ -244,6 +244,32 @@ end
 ```
 Homma jäi nyt valitettavasti kesken. Lopetus klo 18:00.
 
+7.5.2024: Laitoin yllä mainitut vagrant-koneet pystyyn. Salt-tilaksi aijon käyttää seuraavaa ([lähde](https://ottohanninen.wordpress.com/2021/05/19/configuration-management-systems-palvelinten-hallinta-spring-2021-h7-oma-moduli/):
+
+```
+apache2:
+  pkg.installed
+
+/var/www/html/index.html:
+  file.managed:
+    - source: salt://apache/www/index.html
+
+/etc/apache2/mods-enabled/userdir.conf:
+  file.symlink:
+    - target: /etc/apache2/mods-available/userdir.conf
+
+/etc/apache2/mods-enabled/userdir.load:
+  file.symlink:
+    - target: /etc/apache2/mods-available/userdir.load
+
+apache2restart:
+  service.running:
+    - name: apache2
+    - watch:
+      - file: /etc/apache2/mods-enabled/userdir.conf
+      - file: /etc/apache2/mods-enabled/userdir.load
+```
+
 ### Lähteet
 
 Tehtävänanto: Infra as Code - Palvelinten hallinta 2024 [https://terokarvinen.com/2024/configuration-management-2024-spring/](https://terokarvinen.com/2024/configuration-management-2024-spring/)
@@ -261,3 +287,5 @@ Karvinen, Tero. Two Machine Virtual Network With Debian 11 Bullseye and Vagrant.
 Salt contributors. Salt overview. Kohdat Rules of YAML, YAML simple structure, Lists and dictionaries - YAML block structures. [https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml](https://docs.saltproject.io/salt/user-guide/en/latest/topics/overview.html#rules-of-yaml). Luettu 23.4.2024.
 
 OpenAI. "ChatGPT (GPT-3.5)". OpenAI API. 2024 [https://openai.com](https://openai.com)
+
+Hänninen, Otto. Configuration Management Systems – Palvelinten Hallinta – Spring 2021 – h7 Oma moduli. 2021. [https://ottohanninen.wordpress.com/2021/05/19/configuration-management-systems-palvelinten-hallinta-spring-2021-h7-oma-moduli/](https://ottohanninen.wordpress.com/2021/05/19/configuration-management-systems-palvelinten-hallinta-spring-2021-h7-oma-moduli/)
